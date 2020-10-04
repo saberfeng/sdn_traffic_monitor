@@ -48,7 +48,14 @@ public class FlowMonitor {
         Iterable<FlowEntry> flowEntries = flowRuleService.getFlowEntriesById(appId);
         HashSet<Flow> flows = groupEntriesToFlows(flowEntries);
         print(flows.toString());
+
+        // iterate through flows, map flows into set of switches 
+        // (to visualize flows, we need this set of switches and flow selector)
+        // pick flow matched packets and pack them into json
+        // bits/s -> use flowStatisticService
     }
+
+    public convertFlowToJson
 
     private HashSet<Flow> groupEntriesToFlows(Iterable<FlowEntry> flowEntries){
         HashSet<Flow> flows = new HashSet<>();

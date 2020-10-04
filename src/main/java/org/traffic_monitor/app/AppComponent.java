@@ -29,6 +29,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.onosproject.app.ApplicationService;
 import org.onosproject.net.flow.FlowRuleService;
+import org.onosproject.net.statistic.FlowStatisticService;
+import org.onosproject.net.statistic.PollInterval;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -52,9 +54,16 @@ public class AppComponent {
     @Reference(cardinality = ReferenceCardinality.MANDATORY_UNARY)
     protected FlowRuleService flowRuleService;
 
+    @Reference(cardinality = ReferenceCardinality.MANDATORY_UNARY)
+    protected FlowStatisticService flowStatisticService;
+
     @Activate
 	protected void activate() {
-		log.info("Started");
+        log.info("Started");
+        
+        // set poll interval to 5 seconds
+        PollInterval pollIntervalInstance = PollInterval.getInstance();
+        pollIntervalInstance.setPollInterval(5);
 
         FlowMonitor flowMonitor = new FlowMonitor(applicationService, flowRuleService, log);
 

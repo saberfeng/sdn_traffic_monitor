@@ -11,6 +11,7 @@ import org.onosproject.net.flow.criteria.PortCriterion;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.Iterator;
 
 public class Flow {
     
@@ -45,14 +46,30 @@ public class Flow {
         return false;
     }
 
-    // @Override
-    // public boolean equals(Object obj){
-    //     if (obj == null || obj.getClass() != this.getClass()){
-    //         return false;
-    //     }
-    //     final Flow other = (Flow) obj;
+    public FlowEntry pickOne(){
+        if(this.size() == 0){
+            return null;
+        } else {
+            Iterator<FlowEntry> it = this.entries.iterator();
+            return it.next();
+        }
+    }
 
-    // }
+    @Override
+    public boolean equals(Object obj){
+        if (obj == null || obj.getClass() != this.getClass()){
+            return false;
+        }
+        final Flow other = (Flow) obj;
+        if (this.size() != other.size()){
+            return false;
+        }
+        if (FlowUtility.flowEntriesEqual(this.pickOne(), other.pickOne())){
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     @Override
     public String toString(){
