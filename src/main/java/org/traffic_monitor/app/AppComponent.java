@@ -27,6 +27,8 @@ import org.onosproject.net.device.DeviceService;
 import org.onosproject.net.device.PortStatistics;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.onosproject.app.ApplicationService;
+import org.onosproject.net.flow.FlowRuleService;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -44,49 +46,45 @@ public class AppComponent {
     @Reference(cardinality = ReferenceCardinality.MANDATORY_UNARY)
     protected DeviceService deviceService;
 
+    @Reference(cardinality = ReferenceCardinality.MANDATORY_UNARY)
+    protected ApplicationService applicationService;
+
+    @Reference(cardinality = ReferenceCardinality.MANDATORY_UNARY)
+    protected FlowRuleService flowRuleService;
+
     @Activate
 	protected void activate() {
 		log.info("Started");
-		Iterable<Device> devices = deviceService.getDevices();
 
-		for(Device d : devices)
-        {
-            log.info("#### [viswa] Device id " + d.id().toString());
+        FlowMonitor flowMonitor = new FlowMonitor(applicationService, flowRuleService, log);
 
-            List<Port> ports = deviceService.getPorts(d.id());
-            for(Port port : ports) {
-                log.info("\n\n-----Getting info for port" + port.number() + "-----\n");
-                PortStatistics portstat = deviceService.getStatisticsForPort(d.id(), port.number());
-                PortStatistics portdeltastat = deviceService.getDeltaStatisticsForPort(d.id(), port.number());
-                if(portstat != null)
-                    log.info("\n\n----------portstat bytes recieved" + portstat.bytesReceived() + "-----\n");
-                else
-                    log.info("\n\n----------Unable to read portStats" + "-----\n");
+		// Iterable<Device> devices = deviceService.getDevices();
 
-                if(portdeltastat != null)
-                    log.info("\n\n-----portdeltastat bytes recieved" + portdeltastat.bytesReceived() + "-----\n");
-                else
-                    log.info("\n\n-----Unable to read portDeltaStats" + "-----\n");
-            }
-        }
+		// for(Device d : devices)
+        // {
+        //     log.info("#### [viswa] Device id " + d.id().toString());
+
+        //     List<Port> ports = deviceService.getPorts(d.id());
+        //     for(Port port : ports) {
+        //         log.info("\n\n-----Getting info for port" + port.number() + "-----\n");
+        //         PortStatistics portstat = deviceService.getStatisticsForPort(d.id(), port.number());
+        //         PortStatistics portdeltastat = deviceService.getDeltaStatisticsForPort(d.id(), port.number());
+        //         if(portstat != null)
+        //             log.info("\n\n----------portstat bytes recieved" + portstat.bytesReceived() + "-----\n");
+        //         else
+        //             log.info("\n\n----------Unable to read portStats" + "-----\n");
+
+        //         if(portdeltastat != null)
+        //             log.info("\n\n-----portdeltastat bytes recieved" + portdeltastat.bytesReceived() + "-----\n");
+        //         else
+        //             log.info("\n\n-----Unable to read portDeltaStats" + "-----\n");
+        //     }
+        // }
 	}
 
     @Deactivate
     protected void deactivate() {
-        // for(portStatsReaderTask task : this.getMap().values()) {
-        //     task.setExit(true);
-        //     task.getTimer().cancel();
-        // }
         log.info("Stopped");
     }
 
-    // public Map<Integer, portStatsReaderTask> getMap() {
-    //     return map;
-    // }
-
-    // public void setMap(Map<Integer, portStatsReaderTask> map) {
-    //     this.map = map;
-    // }
-
-	// private Map<Integer,portStatsReaderTask> map = new HashMap<Integer,portStatsReaderTask>();
 }

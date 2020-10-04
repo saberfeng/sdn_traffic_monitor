@@ -1,0 +1,75 @@
+DefaultApplicationId{id=17, name=org.onosproject.fwd}DefaultApplicationId{id=17, name=org.onosproject.fwd}
+of:0000000000000001
+of:0000000000000002
+of:0000000000000001
+of:0000000000000002
+DefaultApplicationId{id=17, name=org.onosproject.fwd}
+of:0000000000000001
+of:0000000000000002
+of:0000000000000001
+of:0000000000000002
+[
+    [   
+        DefaultFlowEntry
+            {rule=DefaultFlowEntry{id=110000bc5b0b67, deviceId=of:0000000000000001, priority=10, selector=[IN_PORT:1, ETH_DST:D6:5E:62:E9:97:B5, ETH_SRC:FA:2E:2A:DE:54:93], treatment=DefaultTrafficTreatment{immediate=[OUTPUT:2], deferred=[], transition=None, meter=None, cleared=false, metadata=null}, tableId=0, created=1601788490074, payLoad=null}, state=ADDED, life=53000000000, liveType=UNKNOWN, packets=52, bytes=5096, errCode=-1, errType=-1, lastSeen=1601788543104}
+    ], 
+    [
+        DefaultFlowEntry
+            {rule=DefaultFlowEntry{id=11000046dde08e, deviceId=of:0000000000000002, priority=10, selector=[IN_PORT:1, ETH_DST:FA:2E:2A:DE:54:93, ETH_SRC:D6:5E:62:E9:97:B5], treatment=DefaultTrafficTreatment{immediate=[OUTPUT:2], deferred=[], transition=None, meter=None, cleared=false, metadata=null}, tableId=0, created=1601788490076, payLoad=null}, state=ADDED, life=53000000000, liveType=UNKNOWN, packets=52, bytes=5096, errCode=-1, errType=-1, lastSeen=1601788543089}
+    ], 
+    [   
+        DefaultFlowEntry
+            {rule=DefaultFlowEntry{id=1100000f0fb57a, deviceId=of:0000000000000001, priority=10, selector=[IN_PORT:2, ETH_DST:FA:2E:2A:DE:54:93, ETH_SRC:D6:5E:62:E9:97:B5], treatment=DefaultTrafficTreatment{immediate=[OUTPUT:1], deferred=[], transition=None, meter=None, cleared=false, metadata=null}, tableId=0, created=1601788490076, payLoad=null}, state=ADDED, life=53000000000, liveType=UNKNOWN, packets=52, bytes=5096, errCode=-1, errType=-1, lastSeen=1601788543104}
+    ], 
+    [
+        DefaultFlowEntry
+            {rule=DefaultFlowEntry{id=11000019bb204f, deviceId=of:0000000000000002, priority=10, selector=[IN_PORT:2, ETH_DST:D6:5E:62:E9:97:B5, ETH_SRC:FA:2E:2A:DE:54:93], treatment=DefaultTrafficTreatment{immediate=[OUTPUT:1], deferred=[], transition=None, meter=None, cleared=false, metadata=null}, tableId=0, created=1601788490074, payLoad=null}, state=ADDED, life=53000000000, liveType=UNKNOWN, packets=52, bytes=5096, errCode=-1, errType=-1, lastSeen=1601788543089}
+    ]
+]
+
+------------------------------------------------
+DefaultApplicationId{id=17, name=org.onosproject.fwd}
+of:0000000000000001
+of:0000000000000002
+of:0000000000000001
+of:0000000000000002
+[
+    [
+        DefaultFlowEntry{
+            rule=DefaultFlowEntry{
+                id=110000bc5b0b67, 
+                deviceId=of:0000000000000001, 
+                priority=10, 
+                selector=[
+                    IN_PORT:1, 
+                    ETH_DST:D6:5E:62:E9:97:B5, 
+                    ETH_SRC:FA:2E:2A:DE:54:93
+                ], 
+                treatment=DefaultTrafficTreatment{
+                    immediate=[OUTPUT:2], 
+                    deferred=[], 
+                    transition=None, 
+                    meter=None, 
+                    cleared=false, 
+                    metadata=null
+                }, 
+                tableId=0, 
+                created=1601788490074, 
+                payLoad=null
+            }, 
+            state=ADDED, 
+            life=5093000000000, 
+            liveType=UNKNOWN, 
+            packets=5087, 
+            bytes=498526, 
+            errCode=-1, 
+            errType=-1, 
+            lastSeen=1601793583103
+        }, 
+        DefaultFlowEntry{rule=DefaultFlowEntry{id=11000019bb204f, deviceId=of:0000000000000002, priority=10, selector=[IN_PORT:2, ETH_DST:D6:5E:62:E9:97:B5, ETH_SRC:FA:2E:2A:DE:54:93], treatment=DefaultTrafficTreatment{immediate=[OUTPUT:1], deferred=[], transition=None, meter=None, cleared=false, metadata=null}, tableId=0, created=1601788490074, payLoad=null}, state=ADDED, life=5093000000000, liveType=UNKNOWN, packets=5087, bytes=498526, errCode=-1, errType=-1, lastSeen=1601793583089}
+    ], 
+    [
+        DefaultFlowEntry{rule=DefaultFlowEntry{id=11000046dde08e, deviceId=of:0000000000000002, priority=10, selector=[IN_PORT:1, ETH_DST:FA:2E:2A:DE:54:93, ETH_SRC:D6:5E:62:E9:97:B5], treatment=DefaultTrafficTreatment{immediate=[OUTPUT:2], deferred=[], transition=None, meter=None, cleared=false, metadata=null}, tableId=0, created=1601788490076, payLoad=null}, state=ADDED, life=5093000000000, liveType=UNKNOWN, packets=5087, bytes=498526, errCode=-1, errType=-1, lastSeen=1601793583089}, 
+        DefaultFlowEntry{rule=DefaultFlowEntry{id=1100000f0fb57a, deviceId=of:0000000000000001, priority=10, selector=[IN_PORT:2, ETH_DST:FA:2E:2A:DE:54:93, ETH_SRC:D6:5E:62:E9:97:B5], treatment=DefaultTrafficTreatment{immediate=[OUTPUT:1], deferred=[], transition=None, meter=None, cleared=false, metadata=null}, tableId=0, created=1601788490076, payLoad=null}, state=ADDED, life=5093000000000, liveType=UNKNOWN, packets=5087, bytes=498526, errCode=-1, errType=-1, lastSeen=1601793583103}
+    ]
+]
