@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<app name="org.traffic_monitor.app" origin="COMS7200 TEAM E" version="${project.version}"
+     category="default" url="http://onosproject.org" title="Traffic Monitoring App"
+     featuresRepo="mvn:${project.groupId}/${project.artifactId}/${project.version}/xml/features"
+     features="${project.artifactId}">
+     <description>${project.description}</description>
+    <artifact>mvn:${project.groupId}/${project.artifactId}/${project.version}</artifact>
+    <!-- <artifact>mvn:com.google.code.gson/gson/2.8.6</artifact> -->
+</app>

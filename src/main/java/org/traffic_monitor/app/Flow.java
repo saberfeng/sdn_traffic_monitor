@@ -13,12 +13,17 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.Iterator;
 
-public class Flow {
+public class Flow implements Iterable<FlowEntry>{
     
     private HashSet<FlowEntry> entries;
 
     public Flow(){
         this.entries = new HashSet<FlowEntry>();
+    }
+
+    @Override
+    public Iterator<FlowEntry> iterator(){
+        return entries.iterator();
     }
 
     public void setEntries(HashSet<FlowEntry> entries){

@@ -5,4 +5,5 @@
     <reference name="deviceService" interface="org.onosproject.net.device.DeviceService" cardinality="1..1" policy="static" bind="bindDeviceService" unbind="unbindDeviceService"/>
     <reference name="applicationService" interface="org.onosproject.app.ApplicationService" cardinality="1..1" policy="static" bind="bindApplicationService" unbind="unbindApplicationService"/>
     <reference name="flowRuleService" interface="org.onosproject.net.flow.FlowRuleService" cardinality="1..1" policy="static" bind="bindFlowRuleService" unbind="unbindFlowRuleService"/>
+    <reference name="flowStatisticService" interface="org.onosproject.net.statistic.FlowStatisticService" cardinality="1..1" policy="static" bind="bindFlowStatisticService" unbind="unbindFlowStatisticService"/>
 </scr:component>

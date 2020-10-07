@@ -16,7 +16,7 @@
   -->
 <features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0" name="traffic_monitor-1.10.0">
     <feature name="traffic_monitor" version="1.10.0"
-             description="ONOS OSGi bundle archetype.">
+             description="a SDN traffic Monitoring App">
         <feature>onos-api</feature>
         <bundle>mvn:org.traffic_monitor.app/traffic_monitor/1.10.0</bundle>
     </feature>
