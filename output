@@ -144,3 +144,30 @@ byteRate:0.0}
 packetRate:0.0
 byteRate:0.0}
 ]
+--------------------
+
+of:0000000000000001
+of:0000000000000001
+of:0000000000000002
+of:0000000000000002
+[[DefaultFlowEntry{rule=DefaultFlowEntry{id=11000034054cd3, deviceId=of:0000000000000001, priority=10, selector=[IN_PORT:1, ETH_DST:6E:FB:BD:B7:AF:10, ETH_SRC:8A:BA:A4:93:33:64], treatment=DefaultTrafficTreatment{immediate=[OUTPUT:2], deferred=[], transition=None, meter=None, cleared=false, metadata=null}, tableId=0, created=1602120154236, payLoad=null}, state=ADDED, life=3011000000000, liveType=UNKNOWN, packets=3010, bytes=294980, errCode=-1, errType=-1, lastSeen=1602123165939}, DefaultFlowEntry{rule=DefaultFlowEntry{id=110000ef23bebb, deviceId=of:0000000000000002, priority=10, selector=[IN_PORT:2, ETH_DST:6E:FB:BD:B7:AF:10, ETH_SRC:8A:BA:A4:93:33:64], treatment=DefaultTrafficTreatment{immediate=[OUTPUT:1], deferred=[], transition=None, meter=None, cleared=false, metadata=null}, tableId=0, created=1602046916530, payLoad=null}, state=ADDED, life=76252000000000, liveType=UNKNOWN, packets=37356, bytes=3660888, errCode=-1, errType=-1, lastSeen=1602123168912}], [DefaultFlowEntry{rule=DefaultFlowEntry{id=110000ddb338d9, deviceId=of:0000000000000001, priority=10, selector=[IN_PORT:2, ETH_DST:8A:BA:A4:93:33:64, ETH_SRC:6E:FB:BD:B7:AF:10], treatment=DefaultTrafficTreatment{immediate=[OUTPUT:1], deferred=[], transition=None, meter=None, cleared=false, metadata=null}, tableId=0, created=1602046916528, payLoad=null}, state=PENDING_REMOVE, life=76249000000000, liveType=UNKNOWN, packets=37348, bytes=3660104, errCode=-1, errType=-1, lastSeen=1602123165940}, DefaultFlowEntry{rule=DefaultFlowEntry{id=110000be1a87a6, deviceId=of:0000000000000002, priority=10, selector=[IN_PORT:1, ETH_DST:8A:BA:A4:93:33:64, ETH_SRC:6E:FB:BD:B7:AF:10], treatment=DefaultTrafficTreatment{immediate=[OUTPUT:2], deferred=[], transition=None, meter=None, cleared=false, metadata=null}, tableId=0, created=1602120154247, payLoad=null}, state=ADDED, life=3014000000000, liveType=UNKNOWN, packets=3013, bytes=295274, errCode=-1, errType=-1, lastSeen=1602123168912}]]
+json:
+[{switches:
+[of:0000000000000001, of:0000000000000002]
+packetRate:602.0
+byteRate:58996.0}
+, {switches:
+[of:0000000000000001, of:0000000000000002]
+packetRate:7469.6
+byteRate:732020.8}
+]
+!!!***json:
+[{switches:
+[of:0000000000000001, of:0000000000000002]
+packetRate:965.8
+byteRate:94648.4}
+, {switches:
+[of:0000000000000001, of:0000000000000002]
+packetRate:7833.4
+byteRate:767673.2}
+]

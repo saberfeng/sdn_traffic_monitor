@@ -66,7 +66,7 @@ public class AppComponent {
         pollIntervalInstance.setPollInterval(5);
 
         FlowMonitor flowMonitor = new FlowMonitor(applicationService, flowRuleService, log);
-
+        flowMonitor.runAndGetStats();
 		// Iterable<Device> devices = deviceService.getDevices();
 
 		// for(Device d : devices)

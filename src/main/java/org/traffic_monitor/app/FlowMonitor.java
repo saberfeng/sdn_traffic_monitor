@@ -38,23 +38,22 @@ public class FlowMonitor {
     private Logger log;
     private int lengthRequest;
     private int lengthReply;
-    private HashSet<Flow> flowsStorage = null;
+    private HashSet<Flow> flowsStorage;
+    private ApplicationId appId;
 
     public FlowMonitor(ApplicationService appService, FlowRuleService flowRuleService, Logger log) {
+        log.info("\n\n\n\n\n start monitor flows! \n\n");
         this.appService = appService;
         this.flowRuleService = flowRuleService;
         this.log = log;
+        this.appId = appService.getId("org.onosproject.fwd");
+        this.flowsStorage = new HashSet<Flow>();
+    }
 
-        log.info("\n\n\n\n\n start monitor flows! \n\n");
-
-        ApplicationId appId = appService.getId("org.onosproject.fwd");
-        
+    public String runAndGetStats(){
         Iterable<FlowEntry> flowEntries = flowRuleService.getFlowEntriesById(appId);
         HashSet<Flow> flows = groupEntriesToFlows(flowEntries);
-        if(this.flowsStorage == null){
-            this.flowsStorage = flows;
-        }
-        print(flows.toString());
+        // print(flows.toString());
 
         // iterate through flows, map flows into set of switches 
         // (to visualize flows, we need this set of switches and flow selector)
@@ -62,7 +61,8 @@ public class FlowMonitor {
         // bits/s -> use flowStatisticService
         String jsonResult = construct_stats_json(flows);
         this.flowsStorage = flows; // update flows storage
-        print("json:\n" + jsonResult);
+        Print.print("!!!***json:\n" + jsonResult);
+        return jsonResult;
     }
     /*
     flows json format
@@ -133,7 +133,7 @@ public class FlowMonitor {
     private HashSet<Flow> groupEntriesToFlows(Iterable<FlowEntry> flowEntries){
         HashSet<Flow> flows = new HashSet<>();
         for(FlowEntry flowEntry : flowEntries){
-            print(flowEntry.deviceId().toString());
+            // print(flowEntry.deviceId().toString());
 
             boolean hasBelongingFlow = false;
             for(Flow flow : flows){
@@ -150,17 +150,6 @@ public class FlowMonitor {
             }
         }
         return flows;
-    }
-
-
-    private void print(String s){
-        try{
-            FileWriter writer = new FileWriter("/home/sdn/sdn_traffic_monitor/output", true);
-            writer.write(s + "\n");
-            writer.close();
-        } catch (IOException e) {
-            log.info("\n\nerror!\n\n");
-        }
     }
 }
 
