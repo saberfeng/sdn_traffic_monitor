@@ -61,7 +61,7 @@ public class FlowMonitor {
         // bits/s -> use flowStatisticService
         String jsonResult = construct_stats_json(flows);
         this.flowsStorage = flows; // update flows storage
-        Print.print("!!!***json:\n" + jsonResult);
+        // Print.print("!!!***json:\n" + jsonResult);
         return jsonResult;
     }
     /*

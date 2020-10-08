@@ -44,7 +44,6 @@ public class AppComponent {
 
     private final Logger log = LoggerFactory.getLogger(getClass());
 
-
     @Reference(cardinality = ReferenceCardinality.MANDATORY_UNARY)
     protected DeviceService deviceService;
 
@@ -66,7 +65,10 @@ public class AppComponent {
         pollIntervalInstance.setPollInterval(5);
 
         FlowMonitor flowMonitor = new FlowMonitor(applicationService, flowRuleService, log);
-        flowMonitor.runAndGetStats();
+
+        StatsReaderTask statsReaderTask = new StatsReaderTask(flowMonitor);
+        statsReaderTask.schedule();
+        // flowMonitor.runAndGetStats();
 		// Iterable<Device> devices = deviceService.getDevices();
 
 		// for(Device d : devices)

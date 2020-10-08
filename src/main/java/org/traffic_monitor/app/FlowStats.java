@@ -21,7 +21,7 @@ public class FlowStats{
 
     @Override
     public String toString(){
-        return "{switches:\n" + this.switches.toString() + 
+        return "\n{switches:\n" + this.switches.toString() + 
             "\npacketRate:" + this.packetRate + 
             "\nbyteRate:" + this.byteRate + "}\n";
     }
