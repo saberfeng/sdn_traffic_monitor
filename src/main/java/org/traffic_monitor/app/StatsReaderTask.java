@@ -13,15 +13,22 @@ public class StatsReaderTask{
 
     private FlowMonitor flowMonitor;
     private PortStatsMonitor portStatsMonitor;
+    private LinkStatsMonitor linkStatsMonitor;
 
     private Timer timer;
     private WorkerTask workerTask;
 
     private int interval;
 
-    public StatsReaderTask(FlowMonitor flowMonitor, PortStatsMonitor portStatsMonitor, int interval){
+    public StatsReaderTask(
+            FlowMonitor flowMonitor,
+            PortStatsMonitor portStatsMonitor,
+            LinkStatsMonitor linkStatsMonitor,
+            int interval){
         this.flowMonitor = flowMonitor;
         this.portStatsMonitor = portStatsMonitor;
+        this.linkStatsMonitor = linkStatsMonitor;
+
         this.timer = new Timer();
         this.workerTask = new WorkerTask();
         this.interval = interval;
@@ -34,8 +41,10 @@ public class StatsReaderTask{
             Print.print("start!");
             // String flowStats = flowMonitor.runAndGetStats();
             // Print.print(flowStats);
-            String portStats = portStatsMonitor.getStats();
-            Print.print(portStats);
+//            String portStats = portStatsMonitor.getStats();
+//            Print.print(portStats);
+            String linkStats = linkStatsMonitor.getStats();
+            Print.print(linkStats);
         }
     }
 

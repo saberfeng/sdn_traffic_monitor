@@ -28,6 +28,8 @@ import org.onosproject.net.device.PortStatistics;
 import org.onosproject.app.ApplicationService;
 import org.onosproject.net.flow.FlowRuleService;
 import org.onosproject.net.statistic.FlowStatisticService;
+import org.onosproject.net.link.LinkService;
+import org.onosproject.net.statistic.StatisticService;
 import org.onosproject.net.statistic.PollInterval;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -56,6 +58,12 @@ public class AppComponent {
     @Reference(cardinality = ReferenceCardinality.MANDATORY_UNARY)
     protected FlowStatisticService flowStatisticService;
 
+    @Reference(cardinality = ReferenceCardinality.MANDATORY_UNARY)
+    protected LinkService linkService;
+
+    @Reference(cardinality = ReferenceCardinality.MANDATORY_UNARY)
+    protected StatisticService statisticService;
+
     private int onosInterval;
     private int appInterval;
 
@@ -73,8 +81,9 @@ public class AppComponent {
 
         FlowMonitor flowMonitor = new FlowMonitor(applicationService, flowRuleService, log);
         PortStatsMonitor portStatsMonitor = new PortStatsMonitor(deviceService, this.appInterval);
+        LinkStatsMonitor linkStatsMonitor = new LinkStatsMonitor(linkService, statisticService);
 
-        statsReaderTask = new StatsReaderTask(flowMonitor, portStatsMonitor, appInterval);
+        statsReaderTask = new StatsReaderTask(flowMonitor, portStatsMonitor, linkStatsMonitor, appInterval);
         statsReaderTask.schedule();
         // flowMonitor.runAndGetStats();
 		// Iterable<Device> devices = deviceService.getDevices();
