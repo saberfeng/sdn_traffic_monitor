@@ -12,25 +12,39 @@ import java.util.TimerTask;
 public class StatsReaderTask{
 
     private FlowMonitor flowMonitor;
+    private PortStatsMonitor portStatsMonitor;
+
     private Timer timer;
     private WorkerTask workerTask;
 
-    public StatsReaderTask(FlowMonitor flowMonitor){
+    private int interval;
+
+    public StatsReaderTask(FlowMonitor flowMonitor, PortStatsMonitor portStatsMonitor, int interval){
         this.flowMonitor = flowMonitor;
+        this.portStatsMonitor = portStatsMonitor;
         this.timer = new Timer();
         this.workerTask = new WorkerTask();
+        this.interval = interval;
     }
 
     class WorkerTask extends TimerTask{
 
         @Override
         public void run(){
-            String flowStats = flowMonitor.runAndGetStats();
-            Print.print(flowStats);
+            Print.print("start!");
+            // String flowStats = flowMonitor.runAndGetStats();
+            // Print.print(flowStats);
+            String portStats = portStatsMonitor.getStats();
+            Print.print(portStats);
         }
     }
 
     public void schedule(){
-        this.timer.schedule(workerTask, 0, 1000*5);
+        this.timer.schedule(workerTask, 0, 1000*interval);
+    }
+
+    public void cancel(){
+        this.workerTask.cancel();
+        this.timer.cancel();
     }
 }

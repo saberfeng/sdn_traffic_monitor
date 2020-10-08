@@ -25,12 +25,12 @@ import org.onosproject.net.Device;
 import org.onosproject.net.Port;
 import org.onosproject.net.device.DeviceService;
 import org.onosproject.net.device.PortStatistics;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.onosproject.app.ApplicationService;
 import org.onosproject.net.flow.FlowRuleService;
 import org.onosproject.net.statistic.FlowStatisticService;
 import org.onosproject.net.statistic.PollInterval;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -56,17 +56,25 @@ public class AppComponent {
     @Reference(cardinality = ReferenceCardinality.MANDATORY_UNARY)
     protected FlowStatisticService flowStatisticService;
 
+    private int onosInterval;
+    private int appInterval;
+
+    private StatsReaderTask statsReaderTask;
+
     @Activate
 	protected void activate() {
         log.info("Started");
+        this.onosInterval = 6;
+        this.appInterval = 5;
         
         // set poll interval to 5 seconds
         PollInterval pollIntervalInstance = PollInterval.getInstance();
-        pollIntervalInstance.setPollInterval(5);
+        pollIntervalInstance.setPollInterval(this.onosInterval);
 
         FlowMonitor flowMonitor = new FlowMonitor(applicationService, flowRuleService, log);
+        PortStatsMonitor portStatsMonitor = new PortStatsMonitor(deviceService, this.appInterval);
 
-        StatsReaderTask statsReaderTask = new StatsReaderTask(flowMonitor);
+        statsReaderTask = new StatsReaderTask(flowMonitor, portStatsMonitor, appInterval);
         statsReaderTask.schedule();
         // flowMonitor.runAndGetStats();
 		// Iterable<Device> devices = deviceService.getDevices();
@@ -95,6 +103,7 @@ public class AppComponent {
 
     @Deactivate
     protected void deactivate() {
+        statsReaderTask.cancel();
         log.info("Stopped");
     }
 
