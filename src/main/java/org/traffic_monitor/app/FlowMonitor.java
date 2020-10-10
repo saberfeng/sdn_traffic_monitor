@@ -5,26 +5,16 @@
 
 package org.traffic_monitor.app;
 
-import org.onosproject.core.Application;
 import org.onosproject.app.ApplicationService;
-import org.apache.felix.scr.annotations.Reference;
-import org.apache.felix.scr.annotations.ReferenceCardinality;
 import org.onosproject.core.ApplicationId;
 import org.onosproject.net.flow.FlowRuleService;
 import org.onosproject.net.flow.FlowEntry;
-import org.onosproject.net.flow.TrafficSelector;
-import org.onosproject.net.flow.criteria.Criterion;
-import org.onosproject.net.flow.criteria.PortCriterion;
 
-import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
 
-import java.util.Set;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
-import java.io.FileWriter;
-import java.io.IOException;
 
 
 // build and reinstall:
@@ -58,7 +48,7 @@ public class FlowMonitor {
         // (to visualize flows, we need this set of switches and flow selector)
         // pick flow matched packets and pack them into json
         // bits/s -> use flowStatisticService
-        String jsonResult = construct_stats_json(flows);
+        String jsonResult = constructStatsJson(flows);
         this.flowsStorage = flows; // update flows storage
         // Print.print("!!!***json:\n" + jsonResult);
         return jsonResult;
@@ -78,7 +68,7 @@ public class FlowMonitor {
     }]
     */
 
-    public String construct_stats_json(HashSet<Flow> flows){
+    public String constructStatsJson(HashSet<Flow> flows){
         LinkedList<FlowStats> flowStats = new LinkedList<>();
         for (Flow flow : flows){
             LinkedList<String> switches = new LinkedList<>();
@@ -102,8 +92,7 @@ public class FlowMonitor {
         for(FlowStats flowStats : flowStatsList){
             result.append(flowStats.toJSON()).append(",");
         }
-        result.deleteCharAt(result.length()-1);
-        result.append("]");
+        result.deleteCharAt(result.length()-1).append("]");
         return result.toString();
     }
 

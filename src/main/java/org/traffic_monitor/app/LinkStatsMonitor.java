@@ -20,7 +20,7 @@ public class LinkStatsMonitor {
 
     /*
         link stats format:
-        {
+        [
             {
                 src:"001",
                 dst:"009",
@@ -33,7 +33,7 @@ public class LinkStatsMonitor {
                 rate:"345.67",
                 time:234523542
             },
-        }
+        ]
      */
     public String getStats(){
         List<LinkStats> linkStatsList = new LinkedList<>();
@@ -47,7 +47,31 @@ public class LinkStatsMonitor {
                     load.time()
             ));
         }
-        return linkStatsList.toString();
+        return statsToJSON(linkStatsList);
     }
-
+    /*
+    link stats format:
+    [
+        {
+            src:"001",
+            dst:"009",
+            rate:"345.67", // in bytes/s
+            time:234523542
+        },
+        {
+            src:"001",
+            dst:"009",
+            rate:"345.67",
+            time:234523542
+        },
+    ]
+ */
+    public String statsToJSON(List<LinkStats> linkStatsList){
+        StringBuilder result = new StringBuilder("[");
+        for(LinkStats linkStats: linkStatsList){
+            result.append(linkStats.toJSON()).append(",");
+        }
+        result.deleteCharAt(result.length()-1).append("]");
+        return result.toString();
+    }
 }

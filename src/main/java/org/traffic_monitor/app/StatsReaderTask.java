@@ -41,10 +41,10 @@ public class StatsReaderTask{
             Print.print("start!");
 //            String flowStats = flowMonitor.runAndGetStats();
 //            Print.print(flowStats);
-            String portStats = portStatsMonitor.getStats();
-            Print.print(portStats);
-            // String linkStats = linkStatsMonitor.getStats();
-            // Print.print(linkStats);
+//            String portStats = portStatsMonitor.getStats();
+//            Print.print(portStats);
+             String linkStats = linkStatsMonitor.getStats();
+             Print.print(linkStats);
         }
     }
 

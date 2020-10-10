@@ -12,4 +12,15 @@ public class LinkStats {
         this.rate = rate;
         this.time = time;
     }
+    public String toJSON(){
+        return String.format("{" +
+                "\"src\":\"%s\","+
+                "\"dst\":\"%s\","+
+                "\"rate\":%d,"+
+                "\"time\":%d}",
+                src,
+                dst,
+                rate,
+                time);
+    }
 }
