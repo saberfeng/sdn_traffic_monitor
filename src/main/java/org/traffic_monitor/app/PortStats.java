@@ -52,7 +52,8 @@ public class PortStats{
                 "\"receivingBytesPercentage\":%f,"+
                 "\"transmittingBytesPercentage\":%f,"+
                 "\"droppedReceivingPacketsRate\":%f,"+
-                "\"droppedTransmittingPacketsRate\":%f}",
+                "\"droppedTransmittingPacketsRate\":%f," +
+                "\"time\":%d}",
                 receivingPacketRate,
                 transmittingPacketRate,
                 receivingByteRate,
@@ -62,6 +63,7 @@ public class PortStats{
                 receivingBytesPercentage,
                 transmittingBytesPercentage,
                 droppedReceivingPacketsRate,
-                droppedTransmittingPacketsRate);
+                droppedTransmittingPacketsRate,
+                System.currentTimeMillis());
     }
 }
