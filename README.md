@@ -27,54 +27,58 @@
 {
 	"of:0000000000000001": {
 		"1": {
-			"receivingPacketRate": 518.000000,
-			"transmittingPacketRate": 3240.000000,
-			"receivingByteRate": 50725.000000,
-			"transmittingByteRate": 389191.000000,
+			"receivingPacketRate": 601.000000,
+			"transmittingPacketRate": 3392.000000,
+			"receivingByteRate": 58859.000000,
+			"transmittingByteRate": 405092.000000,
 			"receivingErrorRate": 0.000000,
 			"transmittingErrorRate": 0.000000,
-			"receivingBytesPercentage": 0.128533,
-			"transmittingBytesPercentage": 0.530343,
+			"receivingBytesPercentage": 0.140858,
+			"transmittingBytesPercentage": 0.529603,
 			"droppedReceivingPacketsRate": 0.000000,
-			"droppedTransmittingPacketsRate": 0.000000
+			"droppedTransmittingPacketsRate": 0.000000,
+			"time": 1602308995919
 		},
-        "2": {
-			"receivingPacketRate": 3107.000000,
-			"transmittingPacketRate": 3109.000000,
-			"receivingByteRate": 343922.000000,
-			"transmittingByteRate": 344657.000000,
+		"2": {
+			"receivingPacketRate": 3257.000000,
+			"transmittingPacketRate": 3259.000000,
+			"receivingByteRate": 359003.000000,
+			"transmittingByteRate": 359806.000000,
 			"receivingErrorRate": 0.000000,
 			"transmittingErrorRate": 0.000000,
-			"receivingBytesPercentage": 0.871467,
-			"transmittingBytesPercentage": 0.469657,
+			"receivingBytesPercentage": 0.859142,
+			"transmittingBytesPercentage": 0.470397,
 			"droppedReceivingPacketsRate": 0.000000,
-			"droppedTransmittingPacketsRate": 0.000000
+			"droppedTransmittingPacketsRate": 0.000000,
+			"time": 1602308995919
 		}
 	},
 	"of:0000000000000002": {
 		"1": {
-			"receivingPacketRate": 530.000000,
-			"transmittingPacketRate": 3253.000000,
-			"receivingByteRate": 51254.000000,
-			"transmittingByteRate": 390044.000000,
+			"receivingPacketRate": 615.000000,
+			"transmittingPacketRate": 3408.000000,
+			"receivingByteRate": 59481.000000,
+			"transmittingByteRate": 406311.000000,
 			"receivingErrorRate": 0.000000,
 			"transmittingErrorRate": 0.000000,
-			"receivingBytesPercentage": 0.129458,
-			"transmittingBytesPercentage": 0.531420,
+			"receivingBytesPercentage": 0.141862,
+			"transmittingBytesPercentage": 0.530908,
 			"droppedReceivingPacketsRate": 0.000000,
-			"droppedTransmittingPacketsRate": 0.000000
-		},    
-        "2": {
-			"receivingPacketRate": 3109.000000,
-			"transmittingPacketRate": 3107.000000,
-			"receivingByteRate": 344657.000000,
-			"transmittingByteRate": 343922.000000,
+			"droppedTransmittingPacketsRate": 0.000000,
+			"time": 1602308995925
+		},
+		"2": {
+			"receivingPacketRate": 3259.000000,
+			"transmittingPacketRate": 3257.000000,
+			"receivingByteRate": 359806.000000,
+			"transmittingByteRate": 359003.000000,
 			"receivingErrorRate": 0.000000,
 			"transmittingErrorRate": 0.000000,
-			"receivingBytesPercentage": 0.870542,
-			"transmittingBytesPercentage": 0.468580,
+			"receivingBytesPercentage": 0.858138,
+			"transmittingBytesPercentage": 0.469092,
 			"droppedReceivingPacketsRate": 0.000000,
-			"droppedTransmittingPacketsRate": 0.000000
+			"droppedTransmittingPacketsRate": 0.000000,
+			"time": 1602308995925
 		}
 	}
 }    
