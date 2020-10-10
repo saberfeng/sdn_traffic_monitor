@@ -40,4 +40,28 @@ public class PortStats{
         this.droppedReceivingPacketsRate = droppedReceivingPacketsRate;
         this.droppedTransmittingPacketsRate = droppedTransmittingPacketsRate;
     }
+
+    public String toJSON(){
+        return String.format("{" +
+                "\"receivingPacketRate\":%f,"+
+                "\"transmittingPacketRate\":%f,"+
+                "\"receivingByteRate\":%f,"+
+                "\"transmittingByteRate\":%f,"+
+                "\"receivingErrorRate\":%f,"+
+                "\"transmittingErrorRate\":%f,"+
+                "\"receivingBytesPercentage\":%f,"+
+                "\"transmittingBytesPercentage\":%f,"+
+                "\"droppedReceivingPacketsRate\":%f,"+
+                "\"droppedTransmittingPacketsRate\":%f}",
+                receivingPacketRate,
+                transmittingPacketRate,
+                receivingByteRate,
+                transmittingByteRate,
+                receivingErrorRate,
+                transmittingErrorRate,
+                receivingBytesPercentage,
+                transmittingBytesPercentage,
+                droppedReceivingPacketsRate,
+                droppedTransmittingPacketsRate);
+    }
 }

@@ -33,25 +33,6 @@ public class PortStatsMonitor{
         this.interval = interval;
     }
 
-    /*
-    Port stats format:
-    {
-        deviceId1:{
-            port1:{
-                receivingPacketRate:100.34,
-                transmittingPacketRate:1.11,
-                receivingByteRate:2.22,
-                transmittingPacketRate:33.3,
-                receivingErrorRate:66.6,
-                transmittingErrorRate:7.77,
-                droppedReceivingPacketsRate:100.1,
-                droppedTransmittingPacketsRate:200.2,
-                receivingBytesPercentage:55.4,
-                transmittingBytesPercentage:66.7
-            }
-        }
-    }
-    */
     public String getStats(){
         HashMap<String, HashMap<String, PortStats>> resultPortStats = new HashMap<>();
         Iterable<Device> devices = deviceService.getDevices();
@@ -73,7 +54,42 @@ public class PortStatsMonitor{
             calculatePercent(devicePortStats, totalDeviceBytes);
             resultPortStats.put(device.id().toString(), devicePortStats);
         }
-        return resultPortStats.toString();
+        return portStatsToJSON(resultPortStats);
+
+    }
+
+    /*
+    Port stats format:
+    {
+        deviceId1:{
+            port1:{
+                receivingPacketRate:100.34,
+                transmittingPacketRate:1.11,
+                receivingByteRate:2.22,
+                transmittingPacketRate:33.3,
+                receivingErrorRate:66.6,
+                transmittingErrorRate:7.77,
+                droppedReceivingPacketsRate:100.1,
+                droppedTransmittingPacketsRate:200.2,
+                receivingBytesPercentage:55.4,
+                transmittingBytesPercentage:66.7
+            }
+        }
+    }
+    */
+    private String portStatsToJSON(HashMap<String, HashMap<String, PortStats>> resultPortStats){
+        StringBuilder result = new StringBuilder("{");
+        for(String deviceId: resultPortStats.keySet()){
+            result.append("\"").append(deviceId).append("\":{");
+            for(String portNumber : resultPortStats.get(deviceId).keySet()){
+                result.append("\"").append(portNumber).append("\":");
+                result.append(resultPortStats.get(deviceId).get(portNumber).toJSON());
+                result.append(",");
+            }
+            result.deleteCharAt(result.length()-1).append("},");
+        }
+        result.deleteCharAt(result.length()-1).append("}");
+        return result.toString();
     }
 
     private void calculatePercent(HashMap<String, PortStats> devicePortStats, TotalBytesRxTx totalBytesRxTx){
