@@ -39,12 +39,12 @@ public class StatsReaderTask{
         @Override
         public void run(){
             Print.print("start!");
-            // String flowStats = flowMonitor.runAndGetStats();
-            // Print.print(flowStats);
+            String flowStats = flowMonitor.runAndGetStats();
+            Print.print(flowStats);
 //            String portStats = portStatsMonitor.getStats();
 //            Print.print(portStats);
-            String linkStats = linkStatsMonitor.getStats();
-            Print.print(linkStats);
+            // String linkStats = linkStatsMonitor.getStats();
+            // Print.print(linkStats);
         }
     }
 

@@ -6,5 +6,5 @@
      features="traffic_monitor">
      <description>a SDN traffic Monitoring App</description>
     <artifact>mvn:org.traffic_monitor.app/traffic_monitor/1.10.0</artifact>
-    <!-- <artifact>mvn:com.google.code.gson/gson/2.8.6</artifact> -->
+<!--     <artifact>mvn:com.google.code.gson/gson/2.8.6</artifact>-->
 </app>

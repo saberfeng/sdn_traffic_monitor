@@ -26,7 +26,6 @@ import java.util.LinkedList;
 import java.io.FileWriter;
 import java.io.IOException;
 
-// import com.google.gson.Gson;
 
 // build and reinstall:
 // mci && onos-app localhost reinstall! target/traffic_monitor-1.10.0.oar
@@ -66,22 +65,17 @@ public class FlowMonitor {
     }
     /*
     flows json format
-    [
-        {
-            switches:[
-                switch_id_1, 
-                switch_id_2
-            ],
-            packet_rate:100/s
-        },
-        {
-            switches:[
-                switch_id_5, 
-                switch_id_1
-            ],
-            packet_rate:600/s
-        }
-    ]
+    [{
+        "switches": ["of:0000000000000001", "of:0000000000000002"],
+        "packetRate": 38.200000,
+        "byteRate": 3743.600000,
+        "time": 1602306189615
+    }, {
+        "switches": ["of:0000000000000002", "of:0000000000000001"],
+        "packetRate": 38.000000,
+        "byteRate": 3724.000000,
+        "time": 1602306189615
+    }]
     */
 
     public String construct_stats_json(HashSet<Flow> flows){
@@ -100,9 +94,17 @@ public class FlowMonitor {
                 )
             );
         }
-        // Gson gson = new Gson();
-        // return gson.toJson(flowStats);
-        return flowStats.toString();
+        return statsListToJSON(flowStats);
+    }
+
+    private String statsListToJSON(LinkedList<FlowStats> flowStatsList){
+        StringBuilder result = new StringBuilder("[");
+        for(FlowStats flowStats : flowStatsList){
+            result.append(flowStats.toJSON()).append(",");
+        }
+        result.deleteCharAt(result.length()-1);
+        result.append("]");
+        return result.toString();
     }
 
     private Flow retrieveFlowFromSet(HashSet<Flow> flows, Flow flow){

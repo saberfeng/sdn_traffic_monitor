@@ -6,6 +6,24 @@
 * Aggeragation
 * Converting data format
 
+## stats JSON format
+
+##### flow stats
+```
+[{
+	"switches": ["of:0000000000000001", "of:0000000000000002"],
+	"packetRate": 38.200000,
+	"byteRate": 3743.600000,
+	"time": 1602306189615
+}, {
+	"switches": ["of:0000000000000002", "of:0000000000000001"],
+	"packetRate": 38.000000,
+	"byteRate": 3724.000000,
+	"time": 1602306189615
+}]
+```
+
+
 ## types of data to visualize:
 | type |  sub type                |  source |
 | ---- | ------------------------ | ------------------------------------------------------------ |
