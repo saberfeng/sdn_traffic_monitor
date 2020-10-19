@@ -119,6 +119,7 @@
 |      | load(bytes/s) of a link | org.onosproject.net.statistic.StatisticService.load() |
 
 elastic data structure
+```
 PUT 4200
 {
   "mappings": {
@@ -137,3 +138,4 @@ PUT 4200
       }
   }
 }
+```
