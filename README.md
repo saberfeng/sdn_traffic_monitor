@@ -117,3 +117,23 @@
 | link | most loaded link along a path | org.onosproject.net.statistic.StatisticService.max() |
 |      | least loaded link along a path | org.onosproject.net.statistic.StatisticService.min() |
 |      | load(bytes/s) of a link | org.onosproject.net.statistic.StatisticService.load() |
+
+elastic data structure
+PUT 4200
+{
+  "mappings": {
+    "properties": {
+      "switch":{"type": "keyword"}, 
+    	"port":{"type": "keyword"},
+    	"receivingPacketRate":{"type": "double"},
+    	"transmittingPacketRate":{"type": "double"},
+    	"receivingByteRate":{"type": "double"},
+    	"transmittingByteRate":{"type": "double"},
+    	"receivingErrorRate":{"type": "double"},
+    	"transmittingErrorRate":{"type": "double"},
+    	"droppedReceivingPacketsRate":{"type": "double"},
+    	"droppedTransmittingPacketsRate":{"type": "double"},
+    	"time":{"type": "date"}
+      }
+  }
+}
