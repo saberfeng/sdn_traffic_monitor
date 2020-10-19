@@ -3,8 +3,6 @@
  * 
  */
 
-package org.traffic_monitor.app;
-
 import org.onosproject.net.Device;
 import org.onosproject.net.Port;
 import org.onosproject.net.device.DeviceService;
@@ -46,6 +44,26 @@ public class PortStatsMonitor{
                     continue;
                 PortStatistics portStatistics = deviceService.getStatisticsForPort(device.id(), port.number());
                 PortStats calculatedStats = calculateStats(device.id(), port.number(), portStatistics);
+
+		        //RestAPI
+                String switchName = device.id().toString();
+                String portID = port.number().toString();
+
+                Liam.sendToElastic(
+                    switchName,
+                    portID,
+                    calculatedStats.receivingPacketRate,
+                    calculatedStats.transmittingPacketRate,
+                    calculatedStats.receivingByteRate,
+                    calculatedStats.transmittingByteRate,
+                    calculatedStats.receivingErrorRate,
+                    calculatedStats.transmittingErrorRate,
+                    calculatedStats.droppedReceivingPacketsRate,
+                    calculatedStats.droppedTransmittingPacketsRate,
+                    System.currentTimeMillis()
+                );
+		        //RestAPI
+
                 devicePortStats.put(port.number().toString(), calculatedStats);
                 saveStats(device.id(), port.number(), portStatistics);
                 totalDeviceBytes.totalTransmittingBytes += calculatedStats.transmittingByteRate;
