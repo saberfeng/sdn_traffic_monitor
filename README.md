@@ -25,62 +25,56 @@
 ##### port stats
 ```
 {
-	"of:0000000000000001": {
-		"1": {
-			"receivingPacketRate": 601.000000,
-			"transmittingPacketRate": 3392.000000,
-			"receivingByteRate": 58859.000000,
-			"transmittingByteRate": 405092.000000,
-			"receivingErrorRate": 0.000000,
-			"transmittingErrorRate": 0.000000,
-			"receivingBytesPercentage": 0.140858,
-			"transmittingBytesPercentage": 0.529603,
-			"droppedReceivingPacketsRate": 0.000000,
-			"droppedTransmittingPacketsRate": 0.000000,
-			"time": 1602308995919
-		},
-		"2": {
-			"receivingPacketRate": 3257.000000,
-			"transmittingPacketRate": 3259.000000,
-			"receivingByteRate": 359003.000000,
-			"transmittingByteRate": 359806.000000,
-			"receivingErrorRate": 0.000000,
-			"transmittingErrorRate": 0.000000,
-			"receivingBytesPercentage": 0.859142,
-			"transmittingBytesPercentage": 0.470397,
-			"droppedReceivingPacketsRate": 0.000000,
-			"droppedTransmittingPacketsRate": 0.000000,
-			"time": 1602308995919
-		}
-	},
-	"of:0000000000000002": {
-		"1": {
-			"receivingPacketRate": 615.000000,
-			"transmittingPacketRate": 3408.000000,
-			"receivingByteRate": 59481.000000,
-			"transmittingByteRate": 406311.000000,
-			"receivingErrorRate": 0.000000,
-			"transmittingErrorRate": 0.000000,
-			"receivingBytesPercentage": 0.141862,
-			"transmittingBytesPercentage": 0.530908,
-			"droppedReceivingPacketsRate": 0.000000,
-			"droppedTransmittingPacketsRate": 0.000000,
-			"time": 1602308995925
-		},
-		"2": {
-			"receivingPacketRate": 3259.000000,
-			"transmittingPacketRate": 3257.000000,
-			"receivingByteRate": 359806.000000,
-			"transmittingByteRate": 359003.000000,
-			"receivingErrorRate": 0.000000,
-			"transmittingErrorRate": 0.000000,
-			"receivingBytesPercentage": 0.858138,
-			"transmittingBytesPercentage": 0.469092,
-			"droppedReceivingPacketsRate": 0.000000,
-			"droppedTransmittingPacketsRate": 0.000000,
-			"time": 1602308995925
-		}
-	}
+	"switchID":"of:0000000000000001",
+	"portID":1",
+	"receivingPacketRate": 601.000000,
+	"transmittingPacketRate": 3392.000000,
+	"receivingByteRate": 58859.000000,
+	"transmittingByteRate": 405092.000000,
+	"receivingErrorRate": 0.000000,
+	"transmittingErrorRate": 0.000000,
+	"droppedReceivingPacketsRate": 0.000000,
+	"droppedTransmittingPacketsRate": 0.000000,
+	"time": 1602308995919
+},
+{
+	"switchID":"of:0000000000000001",
+	"portID":2",
+	"receivingPacketRate": 3257.000000,
+	"transmittingPacketRate": 3259.000000,
+	"receivingByteRate": 359003.000000,
+	"transmittingByteRate": 359806.000000,
+	"receivingErrorRate": 0.000000,
+	"transmittingErrorRate": 0.000000,
+	"droppedReceivingPacketsRate": 0.000000,
+	"droppedTransmittingPacketsRate": 0.000000,
+	"time": 1602308995919
+},
+{
+	"switchID":"of:0000000000000002",
+	"portID":1",
+	"receivingPacketRate": 615.000000,
+	"transmittingPacketRate": 3408.000000,
+	"receivingByteRate": 59481.000000,
+	"transmittingByteRate": 406311.000000,
+	"receivingErrorRate": 0.000000,
+	"transmittingErrorRate": 0.000000,
+	"droppedReceivingPacketsRate": 0.000000,
+	"droppedTransmittingPacketsRate": 0.000000,
+	"time": 1602308995925
+},
+{
+	"switchID":"of:0000000000000002",
+	"portID":2",
+	"receivingPacketRate": 3259.000000,
+	"transmittingPacketRate": 3257.000000,
+	"receivingByteRate": 359806.000000,
+	"transmittingByteRate": 359003.000000,
+	"receivingErrorRate": 0.000000,
+	"transmittingErrorRate": 0.000000,
+	"droppedReceivingPacketsRate": 0.000000,
+	"droppedTransmittingPacketsRate": 0.000000,
+	"time": 1602308995925
 }    
 ```
 ##### link stats
