@@ -1,13 +1,5 @@
 # sdn_traffic_monitor
 
-## backend tasks
-* Polling various types of data
-* Flow polling algorithm
-* Aggeragation
-* Converting data format
-
-## stats JSON format
-
 ```
 
 ****Monitor.java files are responsible for monitoring and processing data.
@@ -20,6 +12,15 @@ The output is a json structured, Port statistics, link statistics, and flow stat
 
 The methods in Liam.java are responsible for sending port (switch) statistics (currently only port data is used) to elastic.
 ```
+
+## backend tasks
+* Polling various types of data
+* Flow polling algorithm
+* Aggeragation
+* Converting data format
+
+## stats JSON format
+
 
 ##### flow stats
 ```
