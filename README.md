@@ -4,7 +4,7 @@
 
 ****Monitor.java files are responsible for monitoring and processing data.
 
-****.java file is the data structure of the class for each data item.
+****.java file is the data structure of the class for each statistics class.
 
 The Print.java is the class that outputs the log, the output location is sdn_traffic_monitor/output.
 
