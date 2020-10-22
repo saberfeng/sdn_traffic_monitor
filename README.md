@@ -1,5 +1,6 @@
 # sdn_traffic_monitor
-
+## Author: Xingbo Feng: all backend statistics
+## Author: Jiahui Li: Liam.java and RestAPI part
 ```
 
 ****Monitor.java files are responsible for monitoring and processing data.
