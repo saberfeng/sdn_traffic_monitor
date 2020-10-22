@@ -8,6 +8,19 @@
 
 ## stats JSON format
 
+```
+
+****Monitor.java files are responsible for monitoring and processing data.
+
+****.java file is the data structure of the class for each data item.
+
+The Print.java is the class that outputs the log, the output location is sdn_traffic_monitor/output.
+
+The output is a json structured, Port statistics, link statistics, and flow statistics. Shown in detail below.
+
+The methods in Liam.java are responsible for sending port (switch) statistics (currently only port data is used) to elastic.
+```
+
 ##### flow stats
 ```
 [{
