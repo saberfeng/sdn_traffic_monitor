@@ -80,7 +80,7 @@ public class Liam {
                                            double receivingByteRate, double transmittingByteRate, double receivingErrorRate,
                                            double transmittingErrorRate,
                                            double droppedReceivingPacketsRate, double droppedTransmittingPacketsRate, long time){
-        String targetIndex = "4200switch";
+        String targetIndex = "4200";
         StringBuilder data = new StringBuilder();
         data.append(Liam.buildCreateEntryCommand(targetIndex)).append("\r\n") // don't forget the newlines
                 .append(Liam.buildDataEntry(
@@ -142,7 +142,7 @@ public class Liam {
 
 
     public static void flowToElastic(List<String> switches, double packetRate, double byteRate, long time){
-        String targetIndex = "4200flow";
+        String targetIndex = "flow";
         StringBuilder data = new StringBuilder();
         data.append(Liam.buildCreateEntryCommand(targetIndex)).append("\r\n") // don't forget the newlines
                 .append(Liam.buildFlowDataEntry(
