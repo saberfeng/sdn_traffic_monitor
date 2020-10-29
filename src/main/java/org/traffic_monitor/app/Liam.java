@@ -38,7 +38,7 @@ public class Liam {
         }
 
     }
-    public static String buildDataEntry(String switchName, String portID, double receivingPacketRate, double transmittingPacketRate,
+    public static String switchToElastic(String switchName, String portID, double receivingPacketRate, double transmittingPacketRate,
                                         double receivingByteRate, double transmittingByteRate, double receivingErrorRate,
                                         double transmittingErrorRate,
                                         double droppedReceivingPacketsRate, double droppedTransmittingPacketsRate, long time){
