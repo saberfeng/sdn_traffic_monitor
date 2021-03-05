@@ -1,9 +1,7 @@
 /*
  * Author: Xingbo Feng
- * 
+ *
  */
-
-package org.traffic_monitor.app;
 
 import org.onosproject.app.ApplicationService;
 import org.onosproject.core.ApplicationId;
@@ -44,7 +42,7 @@ public class FlowMonitor {
         HashSet<Flow> flows = groupEntriesToFlows(flowEntries);
         // print(flows.toString());
 
-        // iterate through flows, map flows into set of switches 
+        // iterate through flows, map flows into set of switches
         // (to visualize flows, we need this set of switches and flow selector)
         // pick flow matched packets and pack them into json
         // bits/s -> use flowStatisticService
@@ -83,6 +81,11 @@ public class FlowMonitor {
                     result.get("byteRate")
                 )
             );
+
+            //RestAPI
+
+            Liam.flowToElastic(switches,result.get("packetRate"),result.get("byteRate"),System.currentTimeMillis());
+
         }
         return statsListToJSON(flowStats);
     }

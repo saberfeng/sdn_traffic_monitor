@@ -1,9 +1,7 @@
 /*
  * Author: Xingbo Feng
- * 
+ *
  */
-
-package org.traffic_monitor.app;
 
 import org.onosproject.net.Device;
 import org.onosproject.net.Port;
@@ -46,6 +44,26 @@ public class PortStatsMonitor{
                     continue;
                 PortStatistics portStatistics = deviceService.getStatisticsForPort(device.id(), port.number());
                 PortStats calculatedStats = calculateStats(device.id(), port.number(), portStatistics);
+
+		        //RestAPI
+                String switchName = device.id().toString();
+                String portID = port.number().toString();
+
+                Liam.switchSendToElastic(
+                    switchName,
+                    portID,
+                    calculatedStats.receivingPacketRate,
+                    calculatedStats.transmittingPacketRate,
+                    calculatedStats.receivingByteRate,
+                    calculatedStats.transmittingByteRate,
+                    calculatedStats.receivingErrorRate,
+                    calculatedStats.transmittingErrorRate,
+                    calculatedStats.droppedReceivingPacketsRate,
+                    calculatedStats.droppedTransmittingPacketsRate,
+                    System.currentTimeMillis()
+                );
+		        //RestAPI
+
                 devicePortStats.put(port.number().toString(), calculatedStats);
                 saveStats(device.id(), port.number(), portStatistics);
                 totalDeviceBytes.totalTransmittingBytes += calculatedStats.transmittingByteRate;
@@ -107,7 +125,7 @@ public class PortStatsMonitor{
             portStatsStorage.get(deviceId.toString()).put(portNumber.toString(), new PortAccumulatedStats());
         }
         PortAccumulatedStats portAccumulatedStats = portStatsStorage.get(deviceId.toString()).get(portNumber.toString());
-        
+
         portAccumulatedStats.receivingPackets = portStats.packetsReceived();
         portAccumulatedStats.transmittingPackets = portStats.packetsSent();
         portAccumulatedStats.receivingBytes = portStats.bytesReceived();
